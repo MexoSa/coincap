@@ -1,2 +1,9 @@
 @import './base/base';
 @import './base/normalize';
+
+@import './layout/header';
+
+@import './components/crypto-list';
+@import './components/crypto-card';
+@import './components/modal';
+

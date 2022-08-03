@@ -1,0 +1,44 @@
+.header {
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom:1px solid rgba(0, 0, 0, 0.250);
+  &__top-crypto {
+    display: flex;
+    gap: 15px;
+    &>span {
+      font-weight: bold;
+      color: rgb(162, 162, 162);;
+    }
+  }
+  &__briefcase {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    &>img {
+      width: 14px;
+      height: 14px;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.top-crypto {
+  &__item{
+    display: flex;
+    gap: 5px;
+    &>span {
+      font-weight: bold;
+      color: rgb(162, 162, 162);;
+    }
+  }
+  
+}

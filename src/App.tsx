@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './layout/Layout';
+import CryptoPage from './layout/pages/CryptoPage';
+import HomePage from './layout/pages/HomePage';
 
 function App() {
-
-  let [data, setData] = useState<any[]>([])
-
-  const a = () => {
-    fetch("https://api.coincap.io/v2/assets")
-      .then(response => response.json())
-      .then(res => {
-        console.log(res.data)
-        setData(res.data)
-      })
-  }
-
   return (
-    <div className="App" onClick={a}>
-      +
-      {data.map(item => <div className='card'>{item.id}:{Number(item.priceUsd).toFixed(2)} USD</div>)}
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />} >
+        <Route index element={<HomePage />} />
+        <Route path='/:id' element={<CryptoPage />} />
+      </Route>
+    </Routes>
   );
 }
 
