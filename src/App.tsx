@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+
+  let [data, setData] = useState<any[]>([])
+
+  const a = () => {
+    fetch("https://api.coincap.io/v2/assets")
+      .then(response => response.json())
+      .then(res => {
+        console.log(res.data)
+        setData(res.data)
+      })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" onClick={a}>
+      +
+      {data.map(item => <div className='card'>{item.id}:{Number(item.priceUsd).toFixed(2)} USD</div>)}
     </div>
   );
 }
