@@ -1,9 +1,11 @@
+@import './helpers/variables';
+
 @import './base/base';
 @import './base/normalize';
 
-@import './layout/header';
+@import '../layout/Header/header';
 
-@import './components/crypto-list';
-@import './components/crypto-card';
-@import './components/modal';
+@import '../components/CryptoCard/crypto-card';
+@import '../components/CryptoList/crypto-list';
+@import '../components/Modal/modal';
 

@@ -1,0 +1,42 @@
+.header {
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom:1px solid $border-black;
+}
+
+.header__briefcase {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.header__briefcase:hover {
+  background-color: $light-gray;
+}
+
+.briefcase__icon {
+  width: 14px;
+    height: 14px;
+}
+
+.header__top-crypto {
+  display: flex;
+  gap: 15px;
+}
+
+.top-crypto__item {
+  display: flex;
+  gap: 5px;
+}
+
+.top-crypto__item_grey {
+  font-weight: bold;
+  color: $gray;
+}

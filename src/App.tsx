@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './layout/Layout';
-import CryptoPage from './layout/pages/CryptoPage';
-import HomePage from './layout/pages/HomePage';
+import CryptoPage from './pages/CryptoPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (

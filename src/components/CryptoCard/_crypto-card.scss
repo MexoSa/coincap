@@ -1,0 +1,55 @@
+.crypto-card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 0;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid $border-black;
+}
+
+.crypto-card:hover {
+  background-color: $light-gray;
+}
+
+.crypto-card__name,
+.crypto-card__price {
+  display: flex;
+  justify-content: center;
+  width: calc(100%/2);
+  text-align: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.crypto-card__rank,
+.crypto-card__add-crypto {
+  width: 30px;
+  text-align: center;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.crypto-card__add-crypto {
+  color: $gray;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.crypto-card__add-crypto:hover {
+  color: black;
+}
+
+.crypto-card__name {
+  display: flex;
+  gap: 5px;
+}
+
+.crypto-card__name_gray {
+  font-weight: bold;
+  color: $gray;
+}

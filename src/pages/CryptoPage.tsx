@@ -2,15 +2,15 @@ import { Chart, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend }
 import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2';
 import { useLocation } from 'react-router-dom'
-import { http } from '../../helpers/http';
-import { response } from '../../types/response';
+import { http } from '../helpers/http';
+import { cryptoData, response } from '../types/response';
 
 const CryptoPage = () => {
   const location = useLocation()
   const id = location.pathname.split('/')[1]
   console.log(location, id);
 
-  let [cryptoData, setCryptoData] = useState<any[]>([])
+  let [cryptoData, setCryptoData] = useState<cryptoData[]>([])
 
   const getCryptoData = async () => {
     let response = await http<response>(`https://api.coincap.io/v2/assets/${id}/history?interval=d1`)
@@ -20,7 +20,7 @@ const CryptoPage = () => {
   useEffect(() => {
     getCryptoData()
   }, [])
-  console.log(cryptoData);
+
   Chart.register(
     CategoryScale,
     LinearScale,
@@ -34,7 +34,7 @@ const CryptoPage = () => {
     responsive: true,
   }
 
-  const labels = cryptoData.map(item => item.date)
+  const labels = cryptoData
 
   const data = {
     labels,
@@ -46,7 +46,6 @@ const CryptoPage = () => {
       },
     ],
   }
-
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import CryptoList from '../../components/CryptoList'
+import CryptoList from '../components/CryptoList/CryptoList'
 
 
 const HomePage: FC = () => {
