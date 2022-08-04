@@ -1,4 +1,3 @@
-
 export const checkPosition = () => {
   const height = document.body.offsetHeight
   const screenHeight = window.innerHeight

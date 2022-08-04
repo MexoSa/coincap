@@ -1,11 +1,13 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { cryptoData } from '../../types/response'
+import { roundTo } from '../../helpers/roundTo'
+import { CryptoData } from '../../types/CryptoData'
+
 
 type CryptoCardProps = {
   openModal: () => void,
   setId: (id: string) => void,
-} & cryptoData
+} & CryptoData
 
 const CryptoCard: FC<CryptoCardProps> = ({ id, rank, name, symbol, priceUsd, openModal, setId }) => {
   return (
@@ -16,7 +18,7 @@ const CryptoCard: FC<CryptoCardProps> = ({ id, rank, name, symbol, priceUsd, ope
           {name}
           <span className='crypto-card__name_gray'>{symbol}</span>
         </div>
-        <div className='crypto-card__price'>{Number(priceUsd).toFixed(2)} USD</div>
+        <div className='crypto-card__price'>{roundTo(priceUsd, 2)} USD</div>
         <button className='crypto-card__add-crypto' onClick={(e) => {
           e.preventDefault()
           openModal()
