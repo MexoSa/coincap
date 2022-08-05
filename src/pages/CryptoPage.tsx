@@ -1,10 +1,9 @@
-import { Chart, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js'
 import React, { useEffect } from 'react'
-import { Bar } from 'react-chartjs-2'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
+import CryptoFullInfo from '../components/CryptoFullInfo/CryptoFullInfo'
 import Loader from '../components/Loader/Loader'
-import { getCryptoById } from '../store/actions/cryptoActions'
+import { getCryptoById, getCryptoHistoryById } from '../store/actions/cryptoActions'
 import { globalState } from '../types/GlobalState'
 
 const CryptoPage = () => {
@@ -13,46 +12,22 @@ const CryptoPage = () => {
 
   const dispatch = useDispatch()
   const cryptoById = useSelector((state: globalState) => state.cryptoReducer.cryptoById)
+  const cryptoHistory = useSelector((state: globalState) => state.cryptoReducer.cryptoHistory)
   const isLoading = useSelector((state: globalState) => state.cryptoReducer.isLoading)
 
   useEffect(() => {
     dispatch(getCryptoById(id))
+    dispatch(getCryptoHistoryById(id))
   }, [])
 
-  // Chart.register(
-  //   CategoryScale,
-  //   LinearScale,
-  //   BarElement,
-  //   Title,
-  //   Tooltip,
-  //   Legend
-  // )
-
-  // const options = {
-  //   responsive: true,
-  // }
-
-  // const labels = cryptoData
-
-  // const data = {
-  //   labels,
-  //   datasets: [
-  //     {
-  //       label: id,
-  //       data: cryptoData.map(item => item.priceUsd),
-  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-  //     },
-  //   ],
-  // }
 
   return (
     <>
       {
-        isLoading ?
+        isLoading && cryptoHistory.length && cryptoById ?
           <Loader /> :
-          <div>{cryptoById && cryptoById.id}</div>
+          cryptoById && <CryptoFullInfo {...cryptoById} />
       }
-      {/* <Bar options={options} data={data} /> */}
     </>
   )
 }

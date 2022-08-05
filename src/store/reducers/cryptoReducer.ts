@@ -6,6 +6,7 @@ const initialState: cryptoState = {
   cryptoData: [],
   isLoading: false,
   cryptoById: null,
+  cryptoHistory: []
 }
 
 export const cryptoReducer = (state: cryptoState = initialState, action: CryptoActions): cryptoState => {
@@ -29,6 +30,11 @@ export const cryptoReducer = (state: cryptoState = initialState, action: CryptoA
       return {
         ...state,
         cryptoById: action.payload,
+      }
+    case ActionConstants.SET_CRYPTO_HISTORY_BY_ID:
+      return {
+        ...state,
+        cryptoHistory: action.payload,
       }
     default:
       return state

@@ -1,5 +1,6 @@
 import { ActionConstants } from "../store/actions/actionConstants"
 import { CryptoData } from "./CryptoData"
+import { CryptoHistory } from "./CryptoHistory"
 
 
 export type GetCryptoListAction = {
@@ -34,6 +35,16 @@ export type SetCryptoListActionPagination = {
   payload: CryptoData[]
 }
 
+export type GetCryptoHistoryByIdAction = {
+  type: ActionConstants.GET_CRYPTO_HISTORY_BY_ID
+  payload: string
+}
+
+export type SetCryptoHistoryByIdAction = {
+  type: ActionConstants.SET_CRYPTO_HISTORY_BY_ID
+  payload: CryptoHistory[]
+}
+
 type CryptoActions = GetCryptoByIdAction
   | ToggleLoadingAction
   | SetCryptoListAction
@@ -41,5 +52,7 @@ type CryptoActions = GetCryptoByIdAction
   | GetCryptoListAction
   | GetCryptoPaginationAction
   | SetCryptoListActionPagination
+  | GetCryptoHistoryByIdAction
+  | SetCryptoHistoryByIdAction
 
 export default CryptoActions

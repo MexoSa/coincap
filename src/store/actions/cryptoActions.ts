@@ -1,5 +1,6 @@
 import CryptoActions from "../../types/CryptoActions"
 import { CryptoData } from "../../types/CryptoData"
+import { CryptoHistory } from "../../types/CryptoHistory"
 
 import { ActionConstants } from "./actionConstants"
 
@@ -49,6 +50,20 @@ const setCryptoListPagination = (cryptoData: CryptoData[]): CryptoActions => {
   }
 }
 
+const getCryptoHistoryById = (id: string): CryptoActions => {
+  return {
+    type: ActionConstants.GET_CRYPTO_HISTORY_BY_ID,
+    payload: id
+  }
+}
+
+const setCryptoHistoryById = (cryptoHistory: CryptoHistory[]): CryptoActions => {
+  return {
+    type: ActionConstants.SET_CRYPTO_HISTORY_BY_ID,
+    payload: cryptoHistory
+  }
+}
+
 export {
   getCryptoList,
   toggleLoading,
@@ -56,5 +71,7 @@ export {
   setCryptoById,
   getCryptoById,
   getCryptoPagination,
-  setCryptoListPagination
+  setCryptoListPagination,
+  getCryptoHistoryById,
+  setCryptoHistoryById,
 }
