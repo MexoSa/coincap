@@ -12,7 +12,7 @@ type CryptoCardProps = {
 const CryptoCard: FC<CryptoCardProps> = ({ id, rank, name, symbol, priceUsd, openModal, setId }) => {
   return (
     <>
-      <Link to={`/${id}`} className='crypto-list__crypto-card crypto-card'>
+      <Link to={`/coincap/${id}`} className='crypto-list__crypto-card crypto-card'>
         <div className='crypto-card__rank'>{rank}</div>
         <div className='crypto-card__name'>
           {name}

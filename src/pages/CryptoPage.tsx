@@ -9,7 +9,7 @@ import { globalState } from '../types/GlobalState'
 
 const CryptoPage = () => {
   const location = useLocation()
-  const id = location.pathname.split('/')[1]
+  const id = location.pathname.split('/')[2]
 
   const dispatch = useDispatch()
   const cryptoById = useSelector((state: globalState) => state.cryptoReducer.cryptoById)

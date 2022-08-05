@@ -7,9 +7,9 @@ import HomePage from './pages/HomePage'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Layout />} >
+      <Route path='/coincap' element={<Layout />} >
         <Route index element={<HomePage />} />
-        <Route path='/:id' element={<CryptoPage />} />
+        <Route path='/coincap/:id' element={<CryptoPage />} />
       </Route>
     </Routes>
   )
