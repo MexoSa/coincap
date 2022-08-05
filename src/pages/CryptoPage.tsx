@@ -14,7 +14,6 @@ const CryptoPage = () => {
   const dispatch = useDispatch()
   const cryptoById = useSelector((state: globalState) => state.cryptoReducer.cryptoById)
   const isLoading = useSelector((state: globalState) => state.cryptoReducer.isLoading)
-  console.log(cryptoById)
 
   useEffect(() => {
     dispatch(getCryptoById(id))

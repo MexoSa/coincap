@@ -14,10 +14,10 @@ const Header: FC = () => {
       <div className='header'>
         <div className='header__top-crypto top-crypto'>
           {
-            cryptoData.slice(0, 3).map(item =>
-              <div key={item.id} className='top-crypto__item'>
-                {item.symbol}
-                <span className='top-crypto__item_grey'>{roundTo(item.priceUsd, 2)}</span>
+            cryptoData.slice(0, 3).map(cryptoItem =>
+              <div key={cryptoItem.id} className='top-crypto__item'>
+                {cryptoItem.symbol}
+                <span className='top-crypto__item_grey'>{roundTo(cryptoItem.priceUsd, 2)}</span>
               </div>
             )}
         </div>

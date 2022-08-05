@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCryptoList } from '../../store/actions/cryptoActions'
+import { checkPosition } from '../../helpers/checkPosition'
+import { getCryptoList, getCryptoPagination } from '../../store/actions/cryptoActions'
 import { globalState } from '../../types/GlobalState'
 import CryptoCard from '../CryptoCard/CryptoCard'
 import Loader from '../Loader/Loader'
@@ -10,13 +11,25 @@ const CryptoList: FC = () => {
 
   const cryptoData = useSelector((state: globalState) => state.cryptoReducer.cryptoData)
   const isLoading = useSelector((state: globalState) => state.cryptoReducer.isLoading)
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [id, setId] = useState<string>('')
   const dispatch = useDispatch()
 
+  const scrollHandler = () => {
+    if (checkPosition()) {
+      dispatch(getCryptoPagination())
+    }
+  }
+
   useEffect(() => {
     dispatch(getCryptoList())
-  }, [dispatch])
+
+    document.addEventListener('scroll', scrollHandler)
+    return () => {
+      document.removeEventListener('scroll', scrollHandler)
+    }
+  }, [])
 
   return (
     <div className="crypto-list">
@@ -27,9 +40,10 @@ const CryptoList: FC = () => {
         <div className="table-title__add-crypto">Add</div>
       </div>
       {
-        isLoading
-          ? <Loader />
-          : cryptoData.map(item => <CryptoCard key={item.id} {...item} openModal={() => setIsOpen(true)} setId={setId} />)
+        cryptoData && cryptoData.map(cryptoItem => <CryptoCard key={cryptoItem.rank} {...cryptoItem} openModal={() => setIsOpen(true)} setId={setId} />)
+      }
+      {
+        isLoading && <Loader />
       }
       {
         isOpen && <Modal closeModal={() => setIsOpen(false)} >

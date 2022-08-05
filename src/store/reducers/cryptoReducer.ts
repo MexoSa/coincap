@@ -5,7 +5,7 @@ import { ActionConstants } from "../actions/actionConstants"
 const initialState: cryptoState = {
   cryptoData: [],
   isLoading: false,
-  cryptoById: null
+  cryptoById: null,
 }
 
 export const cryptoReducer = (state: cryptoState = initialState, action: CryptoActions): cryptoState => {
@@ -19,6 +19,11 @@ export const cryptoReducer = (state: cryptoState = initialState, action: CryptoA
       return {
         ...state,
         cryptoData: action.payload,
+      }
+    case ActionConstants.SET_CRYPTO_LIST_PAGINATION:
+      return {
+        ...state,
+        cryptoData: [...state.cryptoData, ...action.payload],
       }
     case ActionConstants.SET_CRYPTO_BY_ID:
       return {

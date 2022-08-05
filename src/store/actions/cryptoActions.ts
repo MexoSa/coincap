@@ -36,10 +36,25 @@ const getCryptoById = (id: string): CryptoActions => {
   }
 }
 
+const getCryptoPagination = (): CryptoActions => {
+  return {
+    type: ActionConstants.GET_CRYPTO_PAGINATION,
+  }
+}
+
+const setCryptoListPagination = (cryptoData: CryptoData[]): CryptoActions => {
+  return {
+    type: ActionConstants.SET_CRYPTO_LIST_PAGINATION,
+    payload: cryptoData
+  }
+}
+
 export {
   getCryptoList,
   toggleLoading,
   setCryptoList,
   setCryptoById,
-  getCryptoById
+  getCryptoById,
+  getCryptoPagination,
+  setCryptoListPagination
 }

@@ -25,10 +25,21 @@ export type GetCryptoByIdAction = {
   payload: string
 }
 
+export type GetCryptoPaginationAction = {
+  type: ActionConstants.GET_CRYPTO_PAGINATION
+}
+
+export type SetCryptoListActionPagination = {
+  type: ActionConstants.SET_CRYPTO_LIST_PAGINATION
+  payload: CryptoData[]
+}
+
 type CryptoActions = GetCryptoByIdAction
   | ToggleLoadingAction
   | SetCryptoListAction
   | SetCryptoByIdAction
   | GetCryptoListAction
+  | GetCryptoPaginationAction
+  | SetCryptoListActionPagination
 
 export default CryptoActions
