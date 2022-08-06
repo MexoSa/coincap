@@ -1,17 +1,17 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { roundTo } from '../../helpers/roundTo'
-import { CryptoData } from '../../types/CryptoData'
-import { globalState } from '../../types/GlobalState'
-import AddToBriefcaseModal from '../Briefcase/AddToBriefcaseModal/AddToBriefcaseModal'
-import Button from '../UI/Button/Button'
+import { roundTo } from '../../../helpers/roundTo'
+import { CryptoData } from '../../../types/Crypto/CryptoData'
+import { GlobalState } from '../../../types/GlobalState'
+import AddToBriefcaseModal from '../../Briefcase/AddToBriefcaseModal/AddToBriefcaseModal'
+import Button from '../../UI/Button/Button'
 
 type CryptoContentProps = {
   className: string
 }
 
-const CryptoContent: FC<CryptoContentProps> = ({ className }) => {
-  const cryptoInfo = useSelector((state: globalState) => state.cryptoReducer.cryptoById) as CryptoData
+const CryptoContent: React.FC<CryptoContentProps> = ({ className }) => {
+  const cryptoInfo = useSelector((state: GlobalState) => state.cryptoByIdReducer.cryptoById) as CryptoData
   const [isOpen, setIsOpen] = useState(false)
 
   return (

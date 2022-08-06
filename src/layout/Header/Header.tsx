@@ -1,14 +1,14 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Modal from '../../components/Modal/Modal'
+import Modal from '../../components/UI/Modal/Modal'
 import { roundTo } from '../../helpers/roundTo'
 import briefcaseIcon from '../../icons/briefcase-icon.png'
 import { getCryptoList } from '../../store/actions/cryptoActions'
-import { globalState } from '../../types/GlobalState'
+import { GlobalState } from '../../types/GlobalState'
 
-const Header: FC = () => {
+const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const cryptoData = useSelector((state: globalState) => state.cryptoReducer.cryptoData)
+  const cryptoData = useSelector((state: GlobalState) => state.cryptoDataReducer.cryptoData)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getCryptoList())

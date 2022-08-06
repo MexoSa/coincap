@@ -1,5 +1,5 @@
 import { put, takeEvery } from "redux-saga/effects"
-import { GetCryptoFullInfoAction } from "../../types/CryptoActions"
+import { GetCryptoFullInfoAction } from "../../types/Crypto/CryptoActions"
 import { ActionConstants } from "../actions/actionConstants"
 import { getCryptoById, getCryptoHistoryById } from "../actions/cryptoActions"
 

@@ -1,18 +1,18 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { Chart, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
-import { globalState } from '../../types/GlobalState'
-import getLastCountItem from '../../helpers/getLastCountItem'
+import { GlobalState } from '../../../types/GlobalState'
+import getLastCountItem from '../../../helpers/getLastCountItem'
 
 type CryptoBarProps = {
   id: string
   className: string
 }
 
-const CryptoBar: FC<CryptoBarProps> = ({ id, className }) => {
+const CryptoBar: React.FC<CryptoBarProps> = ({ id, className }) => {
 
-  const cryptoInfo = useSelector((state: globalState) => state.cryptoReducer.cryptoHistory)
+  const cryptoInfo = useSelector((state: GlobalState) => state.cryptoHistoryByIdReducer.cryptoHistory)
 
   Chart.register(
     CategoryScale,

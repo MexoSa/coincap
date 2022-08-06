@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import addToLocalStorage from '../../../helpers/addToLocalStorage'
 import { roundTo } from '../../../helpers/roundTo'
-import Modal from '../../Modal/Modal'
+import Modal from '../../UI/Modal/Modal'
 import Button from '../../UI/Button/Button'
 
 type AddToBriefcaseModalProps = {

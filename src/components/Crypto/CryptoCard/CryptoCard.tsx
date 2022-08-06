@@ -1,10 +1,10 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { roundTo } from '../../helpers/roundTo'
-import { CryptoData } from '../../types/CryptoData'
-import AddToBriefcaseModal from '../Briefcase/AddToBriefcaseModal/AddToBriefcaseModal'
+import { roundTo } from '../../../helpers/roundTo'
+import { CryptoData } from '../../../types/Crypto/CryptoData'
+import AddToBriefcaseModal from '../../Briefcase/AddToBriefcaseModal/AddToBriefcaseModal'
 
-const CryptoCard: FC<CryptoData> = ({ id, rank, name, symbol, priceUsd }) => {
+const CryptoCard: React.FC<CryptoData> = ({ id, rank, name, symbol, priceUsd }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (

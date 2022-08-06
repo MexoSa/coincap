@@ -1,4 +1,4 @@
-import { ActionConstants } from "../store/actions/actionConstants"
+import { ActionConstants } from "../../store/actions/actionConstants"
 import { CryptoData } from "./CryptoData"
 import { CryptoHistory } from "./CryptoHistory"
 
@@ -7,8 +7,16 @@ export type GetCryptoListAction = {
   type: ActionConstants.GET_CRYPTO_LIST
 }
 
-export type ToggleLoadingAction = {
-  type: ActionConstants.TOGGLE_LOADING
+export type ToggleLoadingDataAction = {
+  type: ActionConstants.TOGGLE_CRYPTO_DATA_LOADING
+}
+
+export type ToggleLoadingHistoryAction = {
+  type: ActionConstants.TOGGLE_CRYPTO_HISTORY_LOADING
+}
+
+export type ToggleLoadingByIdAction = {
+  type: ActionConstants.TOGGLE_CRYPTO_BY_ID_LOADING
 }
 
 export type SetCryptoListAction = {
@@ -51,7 +59,9 @@ export type GetCryptoFullInfoAction = {
 }
 
 type CryptoActions = GetCryptoByIdAction
-  | ToggleLoadingAction
+  | ToggleLoadingDataAction
+  | ToggleLoadingHistoryAction
+  | ToggleLoadingByIdAction
   | SetCryptoListAction
   | SetCryptoByIdAction
   | GetCryptoListAction

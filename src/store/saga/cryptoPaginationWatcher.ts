@@ -1,18 +1,18 @@
 import { call, put, select, takeEvery } from "redux-saga/effects"
 import { fetchCoinCap } from "../../helpers/fetchCoinCap"
-import { CryptoData } from "../../types/CryptoData"
-import { globalState } from "../../types/GlobalState"
+import { CryptoData } from "../../types/Crypto/CryptoData"
+import { GlobalState } from "../../types/GlobalState"
 import { Response } from "../../types/Response"
 import { ActionConstants } from "../actions/actionConstants"
-import { setCryptoListPagination, toggleLoading } from "../actions/cryptoActions"
+import { setCryptoListPagination, toggleCryptoDataLoading } from "../actions/cryptoActions"
 
 export function* workerCryptoPagination() {
-  const cryptoData: CryptoData[] = yield select((state: globalState) => state.cryptoReducer.cryptoData)
-  const isLoading: boolean = yield select((state: globalState) => state.cryptoReducer.isLoading)
+  const cryptoData: CryptoData[] = yield select((state: GlobalState) => state.cryptoDataReducer.cryptoData)
+  const isLoading: boolean = yield select((state: GlobalState) => state.cryptoDataReducer.isLoading)
   if (isLoading || cryptoData.length >= 2000) {
     return
   }
-  yield put(toggleLoading())
+  yield put(toggleCryptoDataLoading())
   try {
     const response: Response<CryptoData[]> = yield call(fetchCoinCap, `?offset=${cryptoData.length}&limit=${2000 - cryptoData.length >= 30 ? 30 : 2000 - cryptoData.length}`)
     yield put(setCryptoListPagination(response.data))
@@ -23,7 +23,7 @@ export function* workerCryptoPagination() {
     }
   }
   finally {
-    yield put(toggleLoading())
+    yield put(toggleCryptoDataLoading())
   }
 }
 

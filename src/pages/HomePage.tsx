@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import CryptoList from '../components/CryptoList/CryptoList'
+import React from 'react'
+import CryptoList from '../components/Crypto/CryptoList/CryptoList'
 
 
-const HomePage: FC = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <CryptoList />

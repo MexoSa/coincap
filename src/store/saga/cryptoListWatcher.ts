@@ -1,12 +1,12 @@
 import { call, put, takeEvery } from "redux-saga/effects"
 import { fetchCoinCap } from "../../helpers/fetchCoinCap"
-import { CryptoData } from "../../types/CryptoData"
+import { CryptoData } from "../../types/Crypto/CryptoData"
 import { Response } from "../../types/Response"
 import { ActionConstants } from "../actions/actionConstants"
-import { setCryptoList, toggleLoading } from "../actions/cryptoActions"
+import { setCryptoList, toggleCryptoDataLoading } from "../actions/cryptoActions"
 
 export function* workerGetCryptoList() {
-  yield put(toggleLoading())
+  yield put(toggleCryptoDataLoading())
   try {
     const response: Response<CryptoData[]> = yield call(fetchCoinCap, `?limit=30`)
     yield put(setCryptoList(response.data))
@@ -17,7 +17,7 @@ export function* workerGetCryptoList() {
     }
   }
   finally {
-    yield put(toggleLoading())
+    yield put(toggleCryptoDataLoading())
   }
 }
 

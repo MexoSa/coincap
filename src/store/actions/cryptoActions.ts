@@ -1,12 +1,21 @@
-import CryptoActions from "../../types/CryptoActions"
-import { CryptoData } from "../../types/CryptoData"
-import { CryptoHistory } from "../../types/CryptoHistory"
-
+import CryptoActions from "../../types/Crypto/CryptoActions"
+import { CryptoData } from "../../types/Crypto/CryptoData"
+import { CryptoHistory } from "../../types/Crypto/CryptoHistory"
 import { ActionConstants } from "./actionConstants"
 
-const toggleLoading = (): CryptoActions => {
+const toggleCryptoDataLoading = (): CryptoActions => {
   return {
-    type: ActionConstants.TOGGLE_LOADING
+    type: ActionConstants.TOGGLE_CRYPTO_DATA_LOADING
+  }
+}
+const toggleCryptoByIdLoading = (): CryptoActions => {
+  return {
+    type: ActionConstants.TOGGLE_CRYPTO_BY_ID_LOADING
+  }
+}
+const toggleCryptoHistoryLoading = (): CryptoActions => {
+  return {
+    type: ActionConstants.TOGGLE_CRYPTO_HISTORY_LOADING
   }
 }
 
@@ -73,7 +82,9 @@ const getCryptoFullInfo = (id: string): CryptoActions => {
 
 export {
   getCryptoList,
-  toggleLoading,
+  toggleCryptoDataLoading,
+  toggleCryptoByIdLoading,
+  toggleCryptoHistoryLoading,
   setCryptoList,
   setCryptoById,
   getCryptoById,

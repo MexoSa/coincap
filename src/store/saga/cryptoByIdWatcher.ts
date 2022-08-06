@@ -1,13 +1,13 @@
 import { call, put, takeEvery } from "redux-saga/effects"
 import { fetchCoinCap } from "../../helpers/fetchCoinCap"
-import { GetCryptoByIdAction } from "../../types/CryptoActions"
-import { CryptoData } from "../../types/CryptoData"
+import { GetCryptoByIdAction } from "../../types/Crypto/CryptoActions"
+import { CryptoData } from "../../types/Crypto/CryptoData"
 import { Response } from "../../types/Response"
 import { ActionConstants } from "../actions/actionConstants"
-import { setCryptoById, toggleLoading } from "../actions/cryptoActions"
+import { setCryptoById, toggleCryptoByIdLoading } from "../actions/cryptoActions"
 
 export function* workerGetCryptoById(action: GetCryptoByIdAction) {
-  yield put(toggleLoading())
+  yield put(toggleCryptoByIdLoading())
   try {
     const response: Response<CryptoData> = yield call(fetchCoinCap, `/${action.payload}`)
     yield put(setCryptoById(response.data))
@@ -18,7 +18,7 @@ export function* workerGetCryptoById(action: GetCryptoByIdAction) {
     }
   }
   finally {
-    yield put(toggleLoading())
+    yield put(toggleCryptoByIdLoading())
   }
 }
 

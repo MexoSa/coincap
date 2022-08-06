@@ -1,15 +1,15 @@
-import React, { FC, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { checkPosition } from '../../helpers/checkPosition'
-import { getCryptoPagination } from '../../store/actions/cryptoActions'
-import { globalState } from '../../types/GlobalState'
+import { checkPosition } from '../../../helpers/checkPosition'
+import { getCryptoPagination } from '../../../store/actions/cryptoActions'
+import { GlobalState } from '../../../types/GlobalState'
 import CryptoCard from '../CryptoCard/CryptoCard'
-import Loader from '../Loader/Loader'
+import Loader from '../../UI/Loader/Loader'
 
-const CryptoList: FC = () => {
+const CryptoList: React.FC = () => {
 
-  const cryptoData = useSelector((state: globalState) => state.cryptoReducer.cryptoData)
-  const isLoading = useSelector((state: globalState) => state.cryptoReducer.isLoading)
+  const cryptoData = useSelector((state: GlobalState) => state.cryptoDataReducer.cryptoData)
+  const isLoading = useSelector((state: GlobalState) => state.cryptoDataReducer.isLoading)
 
   const dispatch = useDispatch()
 
