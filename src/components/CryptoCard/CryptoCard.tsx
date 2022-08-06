@@ -1,15 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { roundTo } from '../../helpers/roundTo'
 import { CryptoData } from '../../types/CryptoData'
+import AddToBriefcaseModal from '../Briefcase/AddToBriefcaseModal/AddToBriefcaseModal'
 
+const CryptoCard: FC<CryptoData> = ({ id, rank, name, symbol, priceUsd }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
-type CryptoCardProps = {
-  openModal: () => void,
-  setId: (id: string) => void,
-} & CryptoData
-
-const CryptoCard: FC<CryptoCardProps> = ({ id, rank, name, symbol, priceUsd, openModal, setId }) => {
   return (
     <>
       <Link to={`/coincap/${id}`} className='crypto-list__crypto-card crypto-card'>
@@ -18,13 +15,15 @@ const CryptoCard: FC<CryptoCardProps> = ({ id, rank, name, symbol, priceUsd, ope
           {name}
           <span className='crypto-card__name_gray'>{symbol}</span>
         </div>
-        <div className='crypto-card__price'>{roundTo(priceUsd, 2)} USD</div>
+        <div className='crypto-card__price'>{roundTo(priceUsd)} USD</div>
         <button className='crypto-card__add-crypto' onClick={(e) => {
           e.preventDefault()
-          openModal()
-          setId(id)
+          setIsOpen(true)
         }}>+</button>
       </Link>
+      {
+        isOpen && <AddToBriefcaseModal id={id} price={priceUsd} onClose={() => setIsOpen(false)} />
+      }
     </>
   )
 }

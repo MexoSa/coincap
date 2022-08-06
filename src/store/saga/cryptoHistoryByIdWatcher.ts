@@ -12,8 +12,10 @@ export function* workerCryptoHistoryById(action: GetCryptoHistoryByIdAction) {
     const response: Response<CryptoHistory[]> = yield call(fetchCoinCap, `/${action.payload}/history?interval=d1`)
     yield put(setCryptoHistoryById(response.data))
   }
-  catch (error: any) {
-    console.log(error.message)
+  catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message)
+    }
   }
   finally {
     yield put(toggleLoading())

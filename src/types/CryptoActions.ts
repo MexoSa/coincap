@@ -45,6 +45,11 @@ export type SetCryptoHistoryByIdAction = {
   payload: CryptoHistory[]
 }
 
+export type GetCryptoFullInfoAction = {
+  type: ActionConstants.GET_CRYPTO_FULL_INFO
+  payload: string
+}
+
 type CryptoActions = GetCryptoByIdAction
   | ToggleLoadingAction
   | SetCryptoListAction
@@ -54,5 +59,6 @@ type CryptoActions = GetCryptoByIdAction
   | SetCryptoListActionPagination
   | GetCryptoHistoryByIdAction
   | SetCryptoHistoryByIdAction
+  | GetCryptoFullInfoAction
 
 export default CryptoActions

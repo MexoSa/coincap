@@ -12,8 +12,10 @@ export function* workerGetCryptoById(action: GetCryptoByIdAction) {
     const response: Response<CryptoData> = yield call(fetchCoinCap, `/${action.payload}`)
     yield put(setCryptoById(response.data))
   }
-  catch (error: any) {
-    console.log(error.message)
+  catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message)
+    }
   }
   finally {
     yield put(toggleLoading())

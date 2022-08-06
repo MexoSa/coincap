@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: max-content;
+  padding: 12px 6px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  background-color: $light-gray;
+}
+
+.button:hover {
+  background-color: $gray;
+  color: $white;
+}

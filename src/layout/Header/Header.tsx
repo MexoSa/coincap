@@ -1,13 +1,18 @@
-import React, { FC, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { FC, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Modal from '../../components/Modal/Modal'
 import { roundTo } from '../../helpers/roundTo'
 import briefcaseIcon from '../../icons/briefcase-icon.png'
+import { getCryptoList } from '../../store/actions/cryptoActions'
 import { globalState } from '../../types/GlobalState'
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const cryptoData = useSelector((state: globalState) => state.cryptoReducer.cryptoData)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCryptoList())
+  }, [])
 
   return (
     <>
@@ -17,7 +22,7 @@ const Header: FC = () => {
             cryptoData.slice(0, 3).map(cryptoItem =>
               <div key={cryptoItem.id} className='top-crypto__item'>
                 {cryptoItem.symbol}
-                <span className='top-crypto__item_grey'>{roundTo(cryptoItem.priceUsd, 2)}</span>
+                <span className='top-crypto__item_grey'>{roundTo(cryptoItem.priceUsd)}</span>
               </div>
             )}
         </div>

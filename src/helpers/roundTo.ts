@@ -1,3 +1,3 @@
-export const roundTo = (value: string, count: number) => {
-  return Number(value).toFixed(count)
+export const roundTo = (value: string) => {
+  return Math.trunc(Number(value) * 100) / 100
 }

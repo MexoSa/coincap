@@ -11,8 +11,10 @@ export function* workerGetCryptoList() {
     const response: Response<CryptoData[]> = yield call(fetchCoinCap, `?limit=30`)
     yield put(setCryptoList(response.data))
   }
-  catch (error: any) {
-    console.log(error.message)
+  catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message)
+    }
   }
   finally {
     yield put(toggleLoading())

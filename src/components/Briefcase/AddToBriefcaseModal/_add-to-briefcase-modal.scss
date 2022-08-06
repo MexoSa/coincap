@@ -1,0 +1,40 @@
+.add-to-briefcase-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-to-briefcase-modal__title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.add-to-briefcase-modal__price {
+  display: flex;
+  gap: 5px;
+}
+
+.add-to-briefcase-modal__price_gray {
+  color: $gray;
+}
+
+.add-to-briefcase-modal__add-controll {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.add-to-briefcase-modal__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $gray;
+  padding: 5px;
+  outline: none;
+}
+
+.add-to-briefcase-modal__button {
+  width: calc(100%/5)!important;
+}

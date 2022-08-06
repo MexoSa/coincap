@@ -3,12 +3,14 @@ import { Chart, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend }
 import { Bar } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 import { globalState } from '../../types/GlobalState'
+import getLastCountItem from '../../helpers/getLastCountItem'
 
 type CryptoBarProps = {
   id: string
+  className: string
 }
 
-const CryptoBar: FC<CryptoBarProps> = ({ id }) => {
+const CryptoBar: FC<CryptoBarProps> = ({ id, className }) => {
 
   const cryptoInfo = useSelector((state: globalState) => state.cryptoReducer.cryptoHistory)
 
@@ -25,21 +27,21 @@ const CryptoBar: FC<CryptoBarProps> = ({ id }) => {
     responsive: true,
   }
 
-  const labels = cryptoInfo && cryptoInfo.map(({ time }) => new Date(time).toLocaleDateString())
+  const labels = cryptoInfo && getLastCountItem(cryptoInfo, 30).map(({ time }) => new Date(time).toLocaleDateString())
 
   const data = {
     labels,
     datasets: [
       {
         label: id,
-        data: cryptoInfo && cryptoInfo.map(({ priceUsd }) => priceUsd),
+        data: cryptoInfo && getLastCountItem(cryptoInfo, 30).map(({ priceUsd }) => priceUsd),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   }
   return (
     <div>
-      <Bar options={options} data={data} />
+      <Bar className={`crypto-bar ${className}`} options={options} data={data} />
     </div>
   )
 }

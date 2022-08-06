@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import CryptoFullInfo from '../components/CryptoFullInfo/CryptoFullInfo'
 import Loader from '../components/Loader/Loader'
-import { getCryptoById, getCryptoHistoryById } from '../store/actions/cryptoActions'
+import { getCryptoFullInfo } from '../store/actions/cryptoActions'
 import { globalState } from '../types/GlobalState'
 
 const CryptoPage = () => {
@@ -16,8 +16,7 @@ const CryptoPage = () => {
   const isLoading = useSelector((state: globalState) => state.cryptoReducer.isLoading)
 
   useEffect(() => {
-    dispatch(getCryptoById(id))
-    dispatch(getCryptoHistoryById(id))
+    dispatch(getCryptoFullInfo(id))
   }, [])
 
 

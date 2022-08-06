@@ -64,6 +64,13 @@ const setCryptoHistoryById = (cryptoHistory: CryptoHistory[]): CryptoActions => 
   }
 }
 
+const getCryptoFullInfo = (id: string): CryptoActions => {
+  return {
+    type: ActionConstants.GET_CRYPTO_FULL_INFO,
+    payload: id
+  }
+}
+
 export {
   getCryptoList,
   toggleLoading,
@@ -74,4 +81,5 @@ export {
   setCryptoListPagination,
   getCryptoHistoryById,
   setCryptoHistoryById,
+  getCryptoFullInfo
 }

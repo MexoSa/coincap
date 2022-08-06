@@ -17,8 +17,10 @@ export function* workerCryptoPagination() {
     const response: Response<CryptoData[]> = yield call(fetchCoinCap, `?offset=${cryptoData.length}&limit=${2000 - cryptoData.length >= 30 ? 30 : 2000 - cryptoData.length}`)
     yield put(setCryptoListPagination(response.data))
   }
-  catch (error: any) {
-    console.log(error.message)
+  catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message)
+    }
   }
   finally {
     yield put(toggleLoading())
