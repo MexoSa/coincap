@@ -1,10 +1,7 @@
-import { CryptoByIdState } from "./Crypto/CryptoByIdState"
-import { CryptoDataState } from "./Crypto/CryptoDataState"
-import { CryptoHistoryByIdState } from "./Crypto/CryptoHistoryByIdState"
-
+import { BriefcaseState } from "./Briefcase/BriefcaseState"
+import { CryptoState } from "./Crypto/CryptoState"
 
 export type GlobalState = {
-  cryptoDataReducer: CryptoDataState
-  cryptoHistoryByIdReducer: CryptoHistoryByIdState
-  cryptoByIdReducer: CryptoByIdState
+  cryptoReducer: CryptoState
+  briefcaseReducer: BriefcaseState
 }

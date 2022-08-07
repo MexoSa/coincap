@@ -1,4 +1,6 @@
-const addToLocalStorage = ({ id, amount, price }: { id: string, amount: string, price: string }) => {
+import { LocalStorageCryptoList } from "../types/LocalStorageCryptoList"
+
+const addToLocalStorage = ({ id, amount, price }: LocalStorageCryptoList) => {
   const localStorageData = localStorage.getItem('briefcase')
   if (localStorageData?.length) {
     const localStorageDataParsed = JSON.parse(localStorageData)

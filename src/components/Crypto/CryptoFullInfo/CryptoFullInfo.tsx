@@ -7,13 +7,13 @@ import CryptoBar from '../CryptoBar/CryptoBar'
 import CryptoContent from '../CryptoContent/CryptoContent'
 
 const CryptoFullInfo: React.FC<CryptoData> = ({ id }) => {
-  const isLoadingCrypto = useSelector((state: GlobalState) => state.cryptoByIdReducer.isLoading)
-  const isLoadingHistory = useSelector((state: GlobalState) => state.cryptoHistoryByIdReducer.isLoading)
+  const isLoadingCryptoById = useSelector((state: GlobalState) => state.cryptoReducer.byId.isLoading)
+  const isLoadingHistory = useSelector((state: GlobalState) => state.cryptoReducer.history.isLoading)
 
   return (
     <div className='crypto-full-info'>
       {
-        isLoadingCrypto ? <Loader /> : <CryptoContent className="crypto-full-info__crypto-content" />
+        isLoadingCryptoById ? <Loader /> : <CryptoContent className="crypto-full-info__crypto-content" />
       }
       {
         isLoadingHistory ? <Loader /> : <CryptoBar className="crypto-full-info__bar" id={id} />

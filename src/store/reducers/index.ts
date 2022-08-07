@@ -1,12 +1,10 @@
 import { combineReducers } from "redux"
-import { cryptoDataReducer } from "./cryptoDataReducer"
-import { cryptoHistoryByIdReducer } from "./cryptoHistoryByIdReducer"
-import { cryptoByIdReducer } from "./cryptoByIdReducer"
+import cryptoReducer from './CryptoReducers/index'
+import { briefcaseReducer } from './BriefcaseReducers/briefcaseReducer'
 
 const reducers = combineReducers({
-  cryptoDataReducer,
-  cryptoHistoryByIdReducer,
-  cryptoByIdReducer
+  cryptoReducer,
+  briefcaseReducer
 })
 
 export default reducers

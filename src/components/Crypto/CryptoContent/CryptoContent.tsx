@@ -11,7 +11,7 @@ type CryptoContentProps = {
 }
 
 const CryptoContent: React.FC<CryptoContentProps> = ({ className }) => {
-  const cryptoInfo = useSelector((state: GlobalState) => state.cryptoByIdReducer.cryptoById) as CryptoData
+  const cryptoInfo = useSelector((state: GlobalState) => state.cryptoReducer.byId.cryptoById) as CryptoData
   const [isOpen, setIsOpen] = useState(false)
 
   return (

@@ -1,10 +1,10 @@
 import { call, put, takeEvery } from "redux-saga/effects"
-import { fetchCoinCap } from "../../helpers/fetchCoinCap"
-import { GetCryptoHistoryByIdAction } from "../../types/Crypto/CryptoActions"
-import { CryptoHistory } from "../../types/Crypto/CryptoHistory"
-import { Response } from "../../types/Response"
-import { ActionConstants } from "../actions/actionConstants"
-import { setCryptoHistoryById, toggleCryptoHistoryLoading } from "../actions/cryptoActions"
+import { fetchCoinCap } from "../../../helpers/fetchCoinCap"
+import { GetCryptoHistoryByIdAction } from "../../../types/Crypto/CryptoActions"
+import { CryptoHistory } from "../../../types/Crypto/CryptoHistory"
+import { Response } from "../../../types/Response"
+import { ActionConstants } from "../../actions/actionConstants"
+import { setCryptoHistoryById, toggleCryptoHistoryLoading } from "../../actions/cryptoActions"
 
 export function* workerCryptoHistoryById(action: GetCryptoHistoryByIdAction) {
   yield put(toggleCryptoHistoryLoading())

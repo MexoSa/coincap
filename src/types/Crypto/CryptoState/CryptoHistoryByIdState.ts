@@ -1,4 +1,4 @@
-import { CryptoHistory } from "./CryptoHistory"
+import { CryptoHistory } from "../CryptoHistory"
 
 export type CryptoHistoryByIdState = {
   cryptoHistory: CryptoHistory[]

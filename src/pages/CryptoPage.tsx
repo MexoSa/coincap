@@ -10,7 +10,7 @@ const CryptoPage = () => {
   const id = location.pathname.split('/')[2]
 
   const dispatch = useDispatch()
-  const cryptoById = useSelector((state: GlobalState) => state.cryptoByIdReducer.cryptoById)
+  const cryptoById = useSelector((state: GlobalState) => state.cryptoReducer.byId.cryptoById)
 
   useEffect(() => {
     dispatch(getCryptoFullInfo(id))

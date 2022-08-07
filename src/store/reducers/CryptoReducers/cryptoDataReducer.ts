@@ -1,6 +1,6 @@
-import CryptoActions from "../../types/Crypto/CryptoActions"
-import { CryptoDataState } from "../../types/Crypto/CryptoDataState"
-import { ActionConstants } from "../actions/actionConstants"
+import CryptoActions from "../../../types/Crypto/CryptoActions"
+import { CryptoDataState } from "../../../types/Crypto/CryptoState/CryptoDataState"
+import { ActionConstants } from "../../actions/actionConstants"
 
 const initialState: CryptoDataState = {
   cryptoData: [],

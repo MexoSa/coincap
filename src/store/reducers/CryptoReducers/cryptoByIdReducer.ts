@@ -1,6 +1,6 @@
-import CryptoActions from "../../types/Crypto/CryptoActions"
-import { CryptoByIdState } from "../../types/Crypto/CryptoByIdState"
-import { ActionConstants } from "../actions/actionConstants"
+import CryptoActions from "../../../types/Crypto/CryptoActions"
+import { CryptoByIdState } from "../../../types/Crypto/CryptoState/CryptoByIdState"
+import { ActionConstants } from "../../actions/actionConstants"
 
 const initialState: CryptoByIdState = {
   isLoading: false,

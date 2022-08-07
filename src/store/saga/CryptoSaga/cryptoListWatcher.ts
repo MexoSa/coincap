@@ -1,9 +1,9 @@
 import { call, put, takeEvery } from "redux-saga/effects"
-import { fetchCoinCap } from "../../helpers/fetchCoinCap"
-import { CryptoData } from "../../types/Crypto/CryptoData"
-import { Response } from "../../types/Response"
-import { ActionConstants } from "../actions/actionConstants"
-import { setCryptoList, toggleCryptoDataLoading } from "../actions/cryptoActions"
+import { fetchCoinCap } from "../../../helpers/fetchCoinCap"
+import { CryptoData } from "../../../types/Crypto/CryptoData"
+import { Response } from "../../../types/Response"
+import { ActionConstants } from "../../actions/actionConstants"
+import { setCryptoList, toggleCryptoDataLoading } from "../../actions/cryptoActions"
 
 export function* workerGetCryptoList() {
   yield put(toggleCryptoDataLoading())

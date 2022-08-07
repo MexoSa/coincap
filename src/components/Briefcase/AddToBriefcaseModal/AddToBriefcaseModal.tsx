@@ -3,6 +3,8 @@ import addToLocalStorage from '../../../helpers/addToLocalStorage'
 import { roundTo } from '../../../helpers/roundTo'
 import Modal from '../../UI/Modal/Modal'
 import Button from '../../UI/Button/Button'
+import { useDispatch } from 'react-redux'
+import { getCurrentCryptoPriceList } from '../../../store/actions/briefcaseActions'
 
 type AddToBriefcaseModalProps = {
   onClose: () => void,
@@ -12,10 +14,12 @@ type AddToBriefcaseModalProps = {
 
 const AddToBriefcaseModal: React.FC<AddToBriefcaseModalProps> = ({ onClose, id, price }) => {
   const [value, setValue] = useState('')
+  const dispatch = useDispatch()
 
   const handleAdd = () => {
     if (+value > 0) {
       addToLocalStorage({ amount: value, id, price })
+      dispatch(getCurrentCryptoPriceList())
       onClose()
     }
   }

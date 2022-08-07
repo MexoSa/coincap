@@ -1,4 +1,4 @@
-import { CryptoData } from "./CryptoData"
+import { CryptoData } from "../CryptoData"
 
 export type CryptoByIdState = {
   cryptoById: CryptoData | null

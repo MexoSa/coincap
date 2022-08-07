@@ -12,7 +12,7 @@ type CryptoBarProps = {
 
 const CryptoBar: React.FC<CryptoBarProps> = ({ id, className }) => {
 
-  const cryptoInfo = useSelector((state: GlobalState) => state.cryptoHistoryByIdReducer.cryptoHistory)
+  const cryptoInfo = useSelector((state: GlobalState) => state.cryptoReducer.history.cryptoHistory)
 
   Chart.register(
     CategoryScale,

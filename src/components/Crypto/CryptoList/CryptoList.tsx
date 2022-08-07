@@ -8,8 +8,8 @@ import Loader from '../../UI/Loader/Loader'
 
 const CryptoList: React.FC = () => {
 
-  const cryptoData = useSelector((state: GlobalState) => state.cryptoDataReducer.cryptoData)
-  const isLoading = useSelector((state: GlobalState) => state.cryptoDataReducer.isLoading)
+  const cryptoData = useSelector((state: GlobalState) => state.cryptoReducer.data.cryptoData)
+  const isLoading = useSelector((state: GlobalState) => state.cryptoReducer.data.isLoading)
 
   const dispatch = useDispatch()
 

@@ -6,9 +6,9 @@ type ButtonProps = {
   children?: React.ReactNode
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, className, children = 'Add' }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, className = "", children = 'Add' }) => {
   return (
-    <div className={`${className} button`} onClick={onClick}>
+    <div className={`button ${className}`} onClick={onClick}>
       {children}
     </div>
   )
