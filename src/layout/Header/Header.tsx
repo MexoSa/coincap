@@ -42,7 +42,10 @@ const Header: React.FC = () => {
           <img className='briefcase__icon' src={briefcaseIcon} alt='briefcase-Icon' />
           <div className='briefcase__price'>
             {
-              `${roundTo(`${currentSum}`)} USD (${currentSum - initialSum && '+'} ${roundTo(`${(currentSum - initialSum) / initialSum * 100}`)}%)`
+              initialSum > 0
+                ?
+                `${roundTo(`${currentSum}`)} USD (${(currentSum - initialSum) > 0 ? '+' : ''}${roundTo(`${(currentSum - initialSum) / initialSum * 100}`)}%)`
+                : '0 USD'
             }
           </div>
         </div>
