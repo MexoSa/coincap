@@ -10,7 +10,7 @@ export const roundTo = (value: string) => {
     })
     return number.toFixed(id)
   } else if (number < 1 && number > 0.1) {
-    return Math.round(number * 1000) / 1000
+    return Math.round(number * 10000) / 10000
   }
 
   return number.toFixed(2)

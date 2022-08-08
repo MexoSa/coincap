@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './layout/Layout'
-import CryptoPage from './pages/CryptoPage'
+import CryptoPage from './pages/CryptoPage/CryptoPage'
 import HomePage from './pages/HomePage'
 
 function App() {

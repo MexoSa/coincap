@@ -5,6 +5,7 @@ import Modal from '../../UI/Modal/Modal'
 import Button from '../../UI/Button/Button'
 import { useDispatch } from 'react-redux'
 import { getCurrentCryptoPriceList } from '../../../store/actions/briefcaseActions'
+import Input from '../../UI/Input/Input'
 
 type AddToBriefcaseModalProps = {
   onClose: () => void,
@@ -14,11 +15,26 @@ type AddToBriefcaseModalProps = {
 
 const AddToBriefcaseModal: React.FC<AddToBriefcaseModalProps> = ({ onClose, id, price }) => {
   const [value, setValue] = useState('')
+  const [inputError, setInputError] = useState('')
   const dispatch = useDispatch()
 
   const handleAdd = () => {
-    if (+value > 0) {
-      addToLocalStorage({ amount: value, id, price })
+    if (+value > 100 || +value === 0) {
+      setInputError('Please enter a number between 0 and 100')
+      setTimeout(() => {
+        setInputError('')
+      }, 3000)
+      setValue('')
+      return
+    } else if (isNaN(parseFloat(value))) {
+      setInputError('Please enter a valid number')
+      setTimeout(() => {
+        setInputError('')
+      }, 3000)
+      setValue('')
+      return
+    } else {
+      addToLocalStorage({ amount: `${parseFloat(value)}`, id, price })
       dispatch(getCurrentCryptoPriceList())
       onClose()
     }
@@ -35,7 +51,7 @@ const AddToBriefcaseModal: React.FC<AddToBriefcaseModalProps> = ({ onClose, id, 
           </div>
         </div>
         <div className='add-to-briefcase-modal__add-controll'>
-          <input className='add-to-briefcase-modal__input' placeholder='INPUT AMOUNT' type="number" value={value} onChange={(e) => setValue(e.target.value)} />
+          <Input value={value} placeholder={'INPUT AMOUNT'} type={'number'} className='add-to-briefcase-modal__input' setValue={setValue} inputError={inputError} />
           <Button onClick={handleAdd} className='add-to-briefcase-modal__button' />
         </div>
       </div>
