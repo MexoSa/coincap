@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import addToLocalStorage from '../../../helpers/addToLocalStorage'
 import { roundTo } from '../../../helpers/roundTo'
 import Modal from '../../UI/Modal/Modal'
@@ -18,7 +18,8 @@ const AddToBriefcaseModal: React.FC<AddToBriefcaseModalProps> = ({ onClose, id, 
   const [inputError, setInputError] = useState('')
   const dispatch = useDispatch()
 
-  const handleAdd = () => {
+  const handleAdd = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     if (+value > 100 || +value === 0) {
       setInputError('Please enter a number between 0 and 100')
       setTimeout(() => {
@@ -50,10 +51,10 @@ const AddToBriefcaseModal: React.FC<AddToBriefcaseModalProps> = ({ onClose, id, 
             USD
           </div>
         </div>
-        <div className='add-to-briefcase-modal__add-controll'>
+        <form className='add-to-briefcase-modal__add-controll' onSubmit={(e) => handleAdd(e)}>
           <Input value={value} placeholder={'INPUT AMOUNT'} type={'number'} className='add-to-briefcase-modal__input' setValue={setValue} inputError={inputError} />
-          <Button onClick={handleAdd} className='add-to-briefcase-modal__button' />
-        </div>
+          <Button type="submit" className='add-to-briefcase-modal__button' />
+        </form>
       </div>
     </Modal>
   )

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://mexosa.github.io/coincap",
   "dependencies": {
+    "@redux-requests/core": "^1.7.0",
     "chart.js": "^3.9.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",

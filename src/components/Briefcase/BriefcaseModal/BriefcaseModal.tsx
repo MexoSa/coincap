@@ -33,7 +33,7 @@ const BriefcaseModal: React.FC<BriefcaseModal> = ({ onClose }) => {
         </div>
         {
           briefcase.length > 0 ?
-            <div className="briefcase-modal__list">
+            <div className="briefcase-modal__list custom-scrolbar">
               {
                 reduceBriefcaseById(briefcase).map(crypto => (
                   <BriefcaseModalItem
@@ -45,7 +45,7 @@ const BriefcaseModal: React.FC<BriefcaseModal> = ({ onClose }) => {
               }
             </div>
             :
-            <div className="briefcase-modal__empty">Empty</div>
+            <div className="briefcase-modal__empty">EMPTY</div>
         }
         <div className="briefcase-modal__price">
           <div className="briefcase-modal__price_title">TOTAL BRIEFCASE SUM</div>

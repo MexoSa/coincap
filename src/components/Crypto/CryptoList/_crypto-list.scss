@@ -7,13 +7,17 @@
 }
 
 .crypto-list__table-title {
-  padding: 6px;
+  font-size: 1.2em;
+  padding: 8px 6px;
   border-bottom: 1px solid $border-black;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   width: 100%;
   text-align: center;
+  position: sticky;
+  top: 0px;
+  background-color: $white;
 }
 
 .table-title__name,

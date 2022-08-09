@@ -6,3 +6,22 @@
   flex-direction: column;
   font-size: 0.9em;
 }
+
+.custom-scrolbar {
+}
+
+.custom-scrolbar::-webkit-scrollbar {
+  width: 10px;
+  background-color: inherit;
+}
+
+.custom-scrolbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $gray;
+}
+
+.custom-scrolbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px $gray;
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}

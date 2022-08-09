@@ -24,8 +24,6 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     dispatch(getCurrentCryptoPriceList())
-    console.log(currentSum, initialSum, (currentSum - initialSum) / initialSum * 100)
-
   }, [pathname])
 
   return (
