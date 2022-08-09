@@ -25,7 +25,7 @@ export const briefcaseReducer = (state: BriefcaseState = initialState, action: B
       return {
         ...state,
         currentSum: + action.payload.reduce((acc, { id, amount }) => {
-          return acc + (+amount * Number(state.currentCryptoPrice.find(item => item.id === id)!.priceUsd))
+          return acc + (+amount * Number(state.currentCryptoPrice.find(item => item.id === id)?.priceUsd))
         }, 0)
       }
     case ActionConstants.SET_INITIAL_BRIEFCASE_SUM:

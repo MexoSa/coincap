@@ -1,0 +1,32 @@
+.briefcase-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.briefcase-modal__price,
+.briefcase-modal__title {
+  font-weight: bold;
+}
+
+.briefcase-modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.briefcase-modal-item__name {
+  font-weight: bold;
+}
+
+.briefcase-modal__price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.briefcase-modal__empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}

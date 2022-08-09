@@ -1,7 +1,7 @@
 export const roundTo = (value: string) => {
   const number = +value
 
-  if (number < 0.1) {
+  if (number < 0.1 && number > 0) {
     const id = value.split('').findIndex(char => {
       if (char === '.') {
         return false
@@ -12,6 +12,6 @@ export const roundTo = (value: string) => {
   } else if (number < 1 && number > 0.1) {
     return Math.round(number * 10000) / 10000
   }
-
+  //отрицательные числа не правильно округляются
   return number.toFixed(2)
 }
