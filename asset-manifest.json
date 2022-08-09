@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/coincap/static/css/main.60d30aef.css",
-    "main.js": "/coincap/static/js/main.80799a8e.js",
+    "main.css": "/coincap/static/css/main.19e6b9bc.css",
+    "main.js": "/coincap/static/js/main.fdc2f344.js",
     "index.html": "/coincap/index.html",
-    "main.60d30aef.css.map": "/coincap/static/css/main.60d30aef.css.map",
-    "main.80799a8e.js.map": "/coincap/static/js/main.80799a8e.js.map"
+    "main.19e6b9bc.css.map": "/coincap/static/css/main.19e6b9bc.css.map",
+    "main.fdc2f344.js.map": "/coincap/static/js/main.fdc2f344.js.map"
   },
   "entrypoints": [
-    "static/css/main.60d30aef.css",
-    "static/js/main.80799a8e.js"
+    "static/css/main.19e6b9bc.css",
+    "static/js/main.fdc2f344.js"
   ]
 }
