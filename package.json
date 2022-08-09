@@ -28,8 +28,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "format": "eslint --fix src/**/*.ts src/**/*.tsx",
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "predeploy": "npm run build",

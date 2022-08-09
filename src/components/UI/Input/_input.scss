@@ -1,7 +1,5 @@
 .input-wrapper {
   width: 100%;
-  position: relative;
-  margin-bottom: 15px;
 }
 
 .input-wrapper__content {
@@ -14,9 +12,6 @@
 }
 
 .input-wrapper__error {
-  position: absolute;
-  top: 35px;
-  left: 0;
   padding: 5px;
   font-size: 0.8em;
   color:$red;

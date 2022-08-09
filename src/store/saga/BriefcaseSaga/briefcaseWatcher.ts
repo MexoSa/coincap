@@ -21,7 +21,7 @@ export function* workerBriefcase() {
       currentCryptoPrice.push({ id: response.data.id, priceUsd: response.data.priceUsd })
     })
     yield put(setCurrentCryptoPriceList(currentCryptoPrice))
-    yield delay(1000)
+    yield delay(500)
     yield put(setInititalBriefcaseSum(briefcase))
     yield put(setCurrentBriefcaseSum(briefcase))
   }
